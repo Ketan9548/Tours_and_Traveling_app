@@ -69,7 +69,7 @@ const AddService = () => {
             htmlFor="title"
             className="block text-lg font-semibold text-gray-700"
           >
-            Service Title
+            Service Titles
           </label>
           <input
             type="text"
