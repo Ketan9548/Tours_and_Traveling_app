@@ -157,14 +157,14 @@ const Review_Customer = () => {
                 className="block text-gray-700 font-medium mb-2"
                 htmlFor="message"
               >
-                Review
+                Message
               </label>
               <textarea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Write your review here"
+                placeholder="Write your message here"
                 className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
                 rows="5"
                 required
