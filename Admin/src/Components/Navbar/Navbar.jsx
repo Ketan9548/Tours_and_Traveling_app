@@ -58,8 +58,8 @@ const Navbar = () => {
       {/* Navigation and Profile Section */}
       <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 mt-4 md:mt-0">
         {location.pathname === "/addservice" ||
-        location.pathname === "/list" ||
-        location.pathname === "/customer_reviews" ? (
+          location.pathname === "/list" ||
+          location.pathname === "/customer_reviews" ? (
           <div className="bg-white p-2 border-2 border-white rounded-3xl pl-4 pr-4 text-black">
             <NavLink
               onClick={handleLogout}

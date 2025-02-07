@@ -83,7 +83,7 @@ const Review_Customer = () => {
       <div className="bg-white border-4 border-blue-300 p-4 rounded-lg w-full lg:w-1/3 mt-8 lg:mt-0">
         <div className="max-w-md mx-auto bg-blue-300 p-6 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold text-center mb-4">
-            Customer Review
+            Contact Us
           </h2>
 
           {submitted && (
