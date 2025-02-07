@@ -1,5 +1,5 @@
 import express from 'express';
-import CustomerReviewModel from '../Moduals/CustomerReviewModel.js';
+import CustomerReviewModel from '../Moduals/CustomerReviewModel.js'
 
 const CustomerReviewapp = express();
 
