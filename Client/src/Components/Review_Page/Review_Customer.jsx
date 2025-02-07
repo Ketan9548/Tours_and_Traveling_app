@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { Link, NavLink } from "react-router-dom";
 
 const Review_Customer = () => {
   const [formData, setFormData] = useState({
