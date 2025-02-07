@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { Link, NavLink } from "react-router-dom";
 
 const Review_Customer = () => {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ const Review_Customer = () => {
     };
     try {
       await axios.post("/customerreview", data)
-      .then((res)=> console.log(res.data));
+        .then((res) => console.log(res.data));
       setSubmitted(true);
       setFormData({ name: "", email: "", number: "", message: "" });
     } catch (error) {
@@ -64,7 +65,9 @@ const Review_Customer = () => {
             <p className="bg-yellow-400 rounded-2xl p-4 text-white hover:text-black">
               <FontAwesomeIcon icon={faPhone} />
               <span className="ml-4 bg-blue-gray-800 p-2 rounded-xl hover:bg-white hover:text-black">
-                91XXXXXXXXX
+                <a href=" http://wa.me/9548025810" target="_blank">
+                  91XXXXXXXXX
+                </a>
               </span>
             </p>
           </div>
@@ -72,7 +75,9 @@ const Review_Customer = () => {
             <p className="bg-yellow-400 rounded-2xl p-4 text-white hover:text-black">
               <FontAwesomeIcon icon={faEnvelope} />
               <span className="ml-4 bg-blue-gray-800 p-2 rounded-xl hover:bg-white hover:text-black">
-                sample@gmail.com
+                <a href="mailto:kamal.chauhan@roquette.com" target="_blank">
+                  smaple@gmail.com
+                </a>
               </span>
             </p>
           </div>
@@ -176,7 +181,7 @@ const Review_Customer = () => {
           </form>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
