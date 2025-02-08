@@ -1,5 +1,5 @@
 import express from "express";
-import sequelizeDB from './DatabaseConnection/DbConnection.js'
+import sequelizeDB from "./DatabaseConnection/DbConnection.js";
 import bodyParser from "body-parser";
 import Serviceapp from "./Routes/ServicesRoutes.js";
 import Contactinfoapp from "./Routes/ContactinfoRoutes.js";
