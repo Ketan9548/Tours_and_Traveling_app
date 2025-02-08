@@ -1,11 +1,11 @@
 import express from "express";
 import ServicesModels from "../Moduals/ServicesModel.js";
 import upload from "../Middelwares/Avtar.Multer.js";
-import authentiMiddelware from "../Middelwares/UserRegister.Middelware.js";
+import authMiddleware from "../Middelwares/UserRegister.Middelware.js";
 
 const Serviceapp = express();
 
-Serviceapp.post("/add", authentiMiddelware,  async (req, res) => {
+Serviceapp.post("/add",  async (req, res) => {
   try {
     const data = req.body;
     const newService = new ServicesModels(data);
@@ -17,7 +17,7 @@ Serviceapp.post("/add", authentiMiddelware,  async (req, res) => {
   }
 });
 
-Serviceapp.get("/alldata", authentiMiddelware, async (req, res) => {
+Serviceapp.get("/alldata", async (req, res) => {
   try {
     const alldata = await ServicesModels.findAll();
     res.status(200).json(alldata);
@@ -26,7 +26,7 @@ Serviceapp.get("/alldata", authentiMiddelware, async (req, res) => {
   }
 });
 
-Serviceapp.post('/avtar_uploads', authentiMiddelware, upload.single('avtar'), (req, res) => {
+Serviceapp.post('/avtar_uploads', upload.single('avtar'), (req, res) => {
   try {
     res.status(200).json({ message: 'File uploaded successfully', file: req.avtar });
   } catch (error) {
@@ -34,7 +34,7 @@ Serviceapp.post('/avtar_uploads', authentiMiddelware, upload.single('avtar'), (r
   }
 })
 
-Serviceapp.delete("/delete/:id", authentiMiddelware, async (req, res) => {
+Serviceapp.delete("/delete/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const deletedRows = await ServicesModels.destroy({ where: { id } });
