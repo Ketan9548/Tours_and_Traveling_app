@@ -1,10 +1,10 @@
 import express from "express";
-import sequelizeDB from "./DatabaseConnection/DbConnection.js";
+import sequelizeDB from './DatabaseConnection/DbConnection.js'
 import bodyParser from "body-parser";
-import Serviceapp from "../Routes/ServicesRoutes.js";
-import Contactinfoapp from "../Routes/ContactinfoRoutes.js";
-import CustomerReviewapp from "../Routes/CustomerReview.js";
-import Userapp from "../Routes/UserRoutes.js";
+import Serviceapp from "./Routes/ServicesRoutes.js";
+import Contactinfoapp from "./Routes/ContactinfoRoutes.js";
+import CustomerReviewapp from './Routes/CustomerReview.js'
+import Userapp from "./Routes/UserRoutes.js";
 import cors from "cors";
 
 const app = express();
