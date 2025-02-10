@@ -61,7 +61,7 @@ const Servicepage = () => {
                   <h3 className="text-lg sm:text-2xl font-bold">{val.title}</h3>
                 </div>
                 <div className="m-2">
-                  {val.list.map((route, idx) => (
+                  {JSON.parse(val.list).map((route, idx) => (
                     <div
                       key={idx}
                       className="text-base sm:text-lg flex items-center font-serif m-1 border-b-2 border-black pb-2"
