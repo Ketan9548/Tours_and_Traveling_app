@@ -13,6 +13,7 @@ const port = 3000;
 app.use(cors({
   origin:'https://client.gocampingindia.com/',
   credentials: true,
+  optionSuccessStatus: 200,  // For some browsers that do not support the status 204
 }));
 
 
