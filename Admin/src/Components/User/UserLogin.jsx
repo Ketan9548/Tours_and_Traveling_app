@@ -17,12 +17,12 @@ function UserLogin() {
   }, [navigate]);
 
   const notify = () => toast.success("Logged in successfully.....");
-
+  const url = "https://backend-of-tours.onrender.com"
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const val = { email: email, password: password };
-      const response = await axios.post("api/login", val);
+      const response = await axios.post(`${url}/api/login`, val);
       localStorage.setItem("token", response.data.token);
       notify();
       navigate("/addservice");

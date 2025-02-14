@@ -23,7 +23,7 @@ const Contact = () => {
       [name]: value,
     }));
   };
-
+  const url = "https://backend-of-tours.onrender.com"
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -34,7 +34,7 @@ const Contact = () => {
         Message: formData.message,
       };
       await axios
-        .post("/contactinfo", data)
+        .post(`${url}/api/contactinfo`, data)
         .then((res) => console.log(res.data))
         .catch((err) => console.log(err.message));
       alert("Form submitted successfully!");

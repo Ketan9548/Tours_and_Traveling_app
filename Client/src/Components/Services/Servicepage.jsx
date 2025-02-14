@@ -22,10 +22,10 @@ const Servicepage = () => {
 
   const [dataval, setDataval] = useState([]);
   const [error, setError] = useState(null);
-
+  const url = "https://backend-of-tours.onrender.com"
   const fetchData = async () => {
     try {
-      const response = await axios.get("/api/alldata");
+      const response = await axios.get(`${url}/api/alldata`);
       setDataval(response.data);
       console.log("the data is response is:", response);
     } catch (err) {

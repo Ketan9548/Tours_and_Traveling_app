@@ -27,7 +27,7 @@ const UserRegistration = () => {
       setError("Passwords do not match.");
       return;
     }
-
+    const url = "https://backend-of-tours.onrender.com"
     try {
       const val = {
         name: formData.name,
@@ -35,7 +35,7 @@ const UserRegistration = () => {
         password: formData.password,
       };
       // Replace with your backend API endpoint
-      await axios.post("/api/register", val);
+      await axios.post(`${url}/api/register`, val);
       // Redirect to the service page
       navigate("/login");
     } catch (err) {

@@ -7,7 +7,7 @@ import axios from "axios";
 const Navbar = () => {
   const location = useLocation();
   const [profileImage, setProfileImage] = useState(assestfile.avtar_file);
-
+  const url = "https://backend-of-tours.onrender.com"
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -20,7 +20,7 @@ const Navbar = () => {
   };
   async function fetchval() {
     try {
-      const response = await axios.get("api/users");
+      const response = await axios.get(`${url}/api/users`);
       console.log(typeof response);
     } catch (error) {
       console.error(

@@ -17,6 +17,7 @@ const Review_Customer = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+  const url = "https://backend-of-tours.onrender.com"
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +28,7 @@ const Review_Customer = () => {
       message: formData.message,
     };
     try {
-      await axios.post("/customerreview", data)
+      await axios.post(`${url}/customerreview`, data)
         .then((res) => console.log(res.data));
       setSubmitted(true);
       setFormData({ name: "", email: "", number: "", message: "" });

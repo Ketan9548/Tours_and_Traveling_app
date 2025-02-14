@@ -6,11 +6,11 @@ const ListService = () => {
   const notify = () => toast.error("Service Delete Successfully");
 
   const [service, setService] = useState([]);
-
+  const url = "https://backend-of-tours.onrender.com"
   // Fetch data from the API
   const fetchData = async () => {
     try {
-      const res = await axios.get("/api/alldata");
+      const res = await axios.get(`${url}/api/alldata`);
       setService(res.data);
       console.log("Service data fetched:", res.data);
     } catch (err) {
@@ -21,7 +21,7 @@ const ListService = () => {
   // Delete data by ID and update frontend
   const deleteData = async (id) => {
     try {
-      await axios.delete(`/api/delete/${id}`);
+      await axios.delete(`${url}/api/delete/${id}`);
       console.log(`Data with ID ${id} deleted.`);
       setService((prevService) => prevService.filter((item) => item.id !== id));
       notify();
