@@ -47,7 +47,7 @@ const Navbar = () => {
           </svg>
         </button>
         <div
-          className={`${isMobileMenuOpen ? "block" : "hidden"
+          className={`${isMobileMenuOpen ? "block" : "hidden" 
             } w-full md:block md:w-auto`}
           id="navbar-default"
         >
@@ -55,10 +55,11 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/"
+                onClick={()=> setIsMobileMenuOpen(false)}
                 className={({ isActive }) =>
                   `block py-2 px-3 rounded transition-colors
                   ${isActive ?
-                    'text-yellow-400 bg-blue-600/20 md:bg-transparent' :
+                    `text-yellow-400 bg-blue-600/20 md:bg-transparent` :
                     'text-black md:text-gray-900 hover:text-yellow-400'}
                   hover:bg-blue-600/30 md:hover:bg-transparent`
                 }
@@ -70,6 +71,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="services"
+                onClick={()=> setIsMobileMenuOpen(false)}
                 className={({ isActive }) =>
                   `block py-2 px-3 rounded transition-colors
                   ${isActive ?
@@ -84,6 +86,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="blogs"
+                onClick={()=> setIsMobileMenuOpen(false)}
                 className={({ isActive }) =>
                   `block py-2 px-3 rounded transition-colors
                   ${isActive ?
@@ -98,6 +101,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="about"
+                onClick={()=> setIsMobileMenuOpen(false)}
                 className={({ isActive }) =>
                   `block py-2 px-3 rounded transition-colors
                   ${isActive ?
@@ -112,6 +116,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="contact"
+                onClick={()=> setIsMobileMenuOpen(false)}
                 className={({ isActive }) =>
                   `block py-2 px-3 rounded transition-colors
                   ${isActive ?

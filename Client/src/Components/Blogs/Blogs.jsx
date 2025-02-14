@@ -54,7 +54,7 @@ const Blogs = () => {
 
   return (
     <div className="mr-14 mt-6 w-auto sm:ml-8 lg:ml-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid pl-14 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {arr1.map((item, index) => (
           <div
             key={index}
