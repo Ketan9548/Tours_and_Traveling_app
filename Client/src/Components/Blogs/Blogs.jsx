@@ -66,8 +66,13 @@ const Blogs = () => {
               alt={item.location}
             />
             <div className="text-center">
-              <p className="text-lg font-bold text-blue-600">
-                <NavLink to={item.url}>{`Explore ${item.location}`}</NavLink>
+              <p className="text-lg font-bold text-blue-600 hover:text-blue-800 transition duration-300">
+                <NavLink
+                  to={`/${item.url}`}
+                  className="focus:outline-none focus:underline"
+                >
+                  {`Explore ${item.location}`}
+                </NavLink>
               </p>
               <p className="text-sm font-light">
                 <span className="text-blue-950">{`B y ${item.cab}`}</span> |{" "}

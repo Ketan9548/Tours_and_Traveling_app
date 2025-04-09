@@ -20,6 +20,8 @@ import KedarnathBlogs from "./Components/Blogs/Pages/KedarnathBlogs.jsx";
 import DehradunBlogs from "./Components/Blogs/Pages/DehradunBlogs.jsx";
 import CharDhamBlogs from "./Components/Blogs/Pages/CharDhamBlogs.jsx";
 import ContactForm from "./Components/Services/Servicepages/ContactForm.jsx/ContactForm.jsx";
+import Contextdata from "./context/Contextdata.jsx";
+import Productinfo from "./Components/Productsinfo/Productinfo.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,20 +30,23 @@ const router = createBrowserRouter(
       <Route path="about" element={<Abouts />} />
       <Route path="contact" element={<Contact />} />
       <Route path="services" element={<Servicepage />} />
-      <Route path="services/nanitalcar" element={<NanitalCar />} />
+      <Route path="nanitalcar" element={<NanitalCar />} />
       <Route path="from" element={<ContactForm />} />
       <Route path="blogs" element={<Blogs />} />
       <Route path="blogs/nanitalblogs" element={<NanitalBlogs />} />
       <Route path="blogs/masuriblogs" element={<MasuriBlogs />} />
       <Route path="blogs/kedarnathblogs" element={<KedarnathBlogs />} />
       <Route path="blogs/dehradunblogs" element={<DehradunBlogs />} />
-      <Route path="blogs/chardhamblogs" element={<CharDhamBlogs />} />
+      <Route path="chardhamblogs" element={<CharDhamBlogs />} />
+      <Route path="productinfo" element={<Productinfo />} />
     </Route>
   )
 );
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Contextdata>
+      <RouterProvider router={router} />
+    </Contextdata>
   </StrictMode>
 );

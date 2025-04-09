@@ -1,14 +1,12 @@
-import { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquareCheck, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
 import Chardham from "../Blogs/Blogsimges/Chardham.jpg";
 import Dehradun from "../Blogs/Blogsimges/Dehardun.jpg";
 import Haridwar from "../Blogs/Blogsimges/Haridwar.jpg";
 import Kedarnath from "../Blogs/Blogsimges/Kedarnath.webp";
 import Masuri from "../Blogs/Blogsimges/Masuri.jpg";
 import Nanital from "../Blogs/Blogsimges/Nanital.jpg";
+import { ApiContext } from "../../context/Contextdata";
 
 const Servicepage = () => {
   const blogs = [
@@ -20,21 +18,7 @@ const Servicepage = () => {
     { name: "Nanital", src: Nanital },
   ];
 
-  const [dataval, setDataval] = useState([]);
-  const [error, setError] = useState(null);
-  const url = "https://backend-of-tours.onrender.com"
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`${url}/api/alldata`);
-      setDataval(response.data);
-      console.log("the data is response is:", response);
-    } catch (err) {
-      setError("Failed to fetch data. Please try again later.", err);
-    }
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { data, error, loading } = useContext(ApiContext);
 
   return (
     <>
@@ -45,38 +29,27 @@ const Servicepage = () => {
         <div className="flex justify-center mt-4 px-4 sm:px-20">
           <div className="flex w-full sm:w-auto h-1 bg-gradient-to-r from-transparent via-black to-transparent rounded-lg shadow-md"></div>
         </div>
-        {error ? (
-          <p className="text-center text-red-500 font-bold">{error}</p>
+        {loading ? (
+          <p className="text-center text-blue-500 font-semibold">Loading...</p>
+        ) : error ? (
+          <p className="text-center text-red-500 font-bold">{error.message}</p>
         ) : (
-          <div className="flex flex-wrap justify-center mt-9 border-2 border-black p-4 sm:mx-10 mb-3">
-            {dataval.map((val, index) => (
+          <div className="flex flex-wrap justify-center gap-6 p-6">
+            {data && data.map((val, index) => (
               <div
                 key={index}
-                className="border-2 h-auto w-full sm:w-80 border-black p-4 m-2"
+                className="w-full sm:w-80 bg-white border border-gray-300 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="flex items-center mb-2">
-                  <p className="mr-3">
-                    <FontAwesomeIcon icon={faArrowRight} />
-                  </p>
-                  <h3 className="text-lg sm:text-2xl font-bold">{val.title}</h3>
-                </div>
-                <div className="m-2">
-                  {JSON.parse(val.list).map((route, idx) => (
-                    <div
-                      key={idx}
-                      className="text-base sm:text-lg flex items-center font-serif m-1 border-b-2 border-black pb-2"
-                    >
-                      <span className="text-green-700">
-                        <FontAwesomeIcon icon={faSquareCheck} />
-                      </span>
-                      <NavLink to="nanitalcar">
-                        <span className="hover:text-orange-400 ml-2">
-                          {route}
-                        </span>
+                <h2 className="text-xl font-bold text-center text-blue-700 mb-4">{val.title}</h2>
+                <ul className="list-disc list-inside space-y-2 text-gray-700">
+                  {val.list && val.list.map((item, idx) => (
+                    <li key={idx}>
+                      <NavLink to="/productinfo">
+                        <span className="hover:text-orange-400 ml-2">{item.trim()}</span>
                       </NavLink>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
           </div>
