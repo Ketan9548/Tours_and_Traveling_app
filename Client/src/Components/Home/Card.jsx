@@ -2,8 +2,10 @@ import React from "react";
 import img1 from "./images/img1.jpg";
 import img2 from "./images/img2.jpg";
 import img3 from "./images/img3.jpg";
+import { useNavigate } from 'react-router-dom';
 
 const Card = () => {
+  const navigate = useNavigate();
   const cards = [
     {
       img: img1,
@@ -22,6 +24,11 @@ const Card = () => {
       title: "Mussoorie Car Service",
     },
   ];
+
+  const redirect = () => {
+      navigate('/productinfo')
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   return (
     <>
@@ -44,7 +51,7 @@ const Card = () => {
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 {card.title}
               </h3>
-              <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-auto">
+              <button onClick={redirect} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-auto">
                 More
               </button>
             </div>
