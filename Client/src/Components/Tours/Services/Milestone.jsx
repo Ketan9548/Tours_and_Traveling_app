@@ -14,7 +14,7 @@ const Milestone = () => {
   const [count3, setCount3] = useState(0);
 
   const startCounting = (setCounter, target, increment, intervalTime) => {
-    const interval = setInterval(() => {
+    let interval = setInterval(() => {
       setCounter((prevCount) => {
         if (prevCount >= target) {
           clearInterval(interval);
@@ -23,16 +23,23 @@ const Milestone = () => {
         return prevCount + increment;
       });
     }, intervalTime);
+
     return () => clearInterval(interval);
   };
 
-  useEffect(
-    () => startCounting(setCount, 5252, 30, 1),
-    startCounting(setCount1, 2000, 2, 3),
-    startCounting(setCount2, 80, 1, 5),
-    startCounting(setCount3, 97, 1, 5),
-    []
-  );
+  useEffect(() => {
+    const clear1 = startCounting(setCount, 5252, 30, 1);
+    const clear2 = startCounting(setCount1, 2000, 2, 3);
+    const clear3 = startCounting(setCount2, 80, 1, 5);
+    const clear4 = startCounting(setCount3, 97, 1, 5);
+    
+    return () => {
+      clear1();
+      clear2();
+      clear3();
+      clear4();
+    };
+  }, []);
 
   return (
     <div className="m-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

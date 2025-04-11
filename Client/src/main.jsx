@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
-import Home from "./Components/Home/Home";
+import Home from "./Pages/Home/Home.jsx";
 import Abouts from "./Components/About/Abouts";
 import Contact from "./Components/Contacts/Contact";
 import "./index.css";
@@ -11,17 +11,17 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Servicepage from "./Components/Services/Servicepage.jsx";
+import Servicepage from "./Components/Tours/Services/Servicepage.jsx";
+import NanitalCar from './Components/Tours/Services/ServicePage/Services/NanitalCar.jsx';
 import Blogs from "./Components/Blogs/Blogs.jsx";
 import NanitalBlogs from "./Components/Blogs/Pages/NanitalBlogs.jsx";
-import NanitalCar from "./Components/Services/Servicepages/Services/NanitalCar.jsx";
 import MasuriBlogs from "./Components/Blogs/Pages/MasuriBlogs.jsx";
 import KedarnathBlogs from "./Components/Blogs/Pages/KedarnathBlogs.jsx";
 import DehradunBlogs from "./Components/Blogs/Pages/DehradunBlogs.jsx";
 import CharDhamBlogs from "./Components/Blogs/Pages/CharDhamBlogs.jsx";
-import ContactForm from "./Components/Services/Servicepages/ContactForm.jsx/ContactForm.jsx";
+import ContactForm from './Components/Tours/Services/ServicePage/ContactForm/ContactForm.jsx';
 import Contextdata from "./context/Contextdata.jsx";
-import Productinfo from "./Components/Productsinfo/Productinfo.jsx";
+import Productinfo from "./Components/Tours/Productsinfo/Productinfo.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

@@ -12,7 +12,7 @@ const Contextdata = ({ children }) => {
         try {
             const response = await axios.get(`/api/alldata`);
             setdata(response.data);
-            console.log("the data is response is:", response.data);
+            // console.log("the data is response is:", response.data);
         } catch (err) {
             setError("Failed to fetch data. Please try again later.", err);
         }

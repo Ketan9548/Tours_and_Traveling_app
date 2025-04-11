@@ -1,5 +1,5 @@
 import React from 'react';
-import chardham from '../../assets/Banner2.jpg';
+import chardham from '../../Blogs/Blogsimges/Chardham.jpg';
 import { NavLink } from 'react-router-dom';
 
 const Productinfo = () => {
