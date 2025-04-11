@@ -22,6 +22,7 @@ import CharDhamBlogs from "./Components/Blogs/Pages/CharDhamBlogs.jsx";
 import ContactForm from './Components/Tours/Services/ServicePage/ContactForm/ContactForm.jsx';
 import Contextdata from "./context/Contextdata.jsx";
 import Productinfo from "./Components/Tours/Productsinfo/Productinfo.jsx";
+import HaridwarBlogs from "./Components/Blogs/Pages/HaridwarBlogs.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,12 +33,15 @@ const router = createBrowserRouter(
       <Route path="services" element={<Servicepage />} />
       <Route path="nanitalcar" element={<NanitalCar />} />
       <Route path="from" element={<ContactForm />} />
+      {/* blogs routes start  */}
       <Route path="blogs" element={<Blogs />} />
-      <Route path="blogs/nanitalblogs" element={<NanitalBlogs />} />
-      <Route path="blogs/masuriblogs" element={<MasuriBlogs />} />
-      <Route path="blogs/kedarnathblogs" element={<KedarnathBlogs />} />
-      <Route path="blogs/dehradunblogs" element={<DehradunBlogs />} />
+      <Route path="nanitalblogs" element={<NanitalBlogs />} />
+      <Route path="masuriblogs" element={<MasuriBlogs />} />
+      <Route path="kedarnathblogs" element={<KedarnathBlogs />} />
+      <Route path="dehradunblogs" element={<DehradunBlogs />} />
       <Route path="chardhamblogs" element={<CharDhamBlogs />} />
+      <Route path="haridwarblogs" element={<HaridwarBlogs />} />
+      {/* end  */}
       <Route path="productinfo" element={<Productinfo />} />
     </Route>
   )

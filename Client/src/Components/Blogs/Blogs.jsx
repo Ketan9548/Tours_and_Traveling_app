@@ -48,7 +48,7 @@ const Blogs = () => {
       location: "Haridwar",
       cab: "Rudrapur Cabs",
       date: "December 10th, 2019",
-      url: "Haridwar",
+      url: "haridwarblogs",
     },
   ];
 
