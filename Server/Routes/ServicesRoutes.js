@@ -1,7 +1,6 @@
 import express from "express";
-import ServicesModels from "../Moduals/ServicesModel.js";
+import ServicesModels from '../Modeals/ServicesModel.js'
 import upload from "../Middelwares/Avtar.Multer.js";
-import authMiddleware from "../Middelwares/UserRegister.Middelware.js";
 
 const Serviceapp = express();
 

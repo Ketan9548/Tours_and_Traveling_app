@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelizeDB from "../DatabaseConnection/DbConnection.js";
-import bcrypt from "bcryptjs";
+import bcrypt from 'bcrypt'
 
 const Usermodel = sequelizeDB.define(
   "User",

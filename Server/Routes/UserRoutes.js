@@ -1,6 +1,6 @@
 import express from "express";
-import Usermodel from "../Moduals/UserModel.js";
-import bcrypt from "bcryptjs";
+import Usermodel from "../Modeals/UserModel.js";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
 

@@ -3,7 +3,7 @@ import sequelizeDB from "./DatabaseConnection/DbConnection.js";
 import bodyParser from "body-parser";
 import Serviceapp from "./Routes/ServicesRoutes.js";
 import Contactinfoapp from "./Routes/ContactinfoRoutes.js";
-import CustomerReviewapp from './Routes/CustomerReview.js'
+import CustomerFeedbackapp from "./Routes/CustomerFeedback.js";
 import Userapp from "./Routes/UserRoutes.js";
 import cors from "cors";
 
@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use("/api", Serviceapp); // Correctly register the service routes
 app.use("/api", Contactinfoapp);
 app.use("/api", Userapp);
-app.use("/api", CustomerReviewapp);
+app.use("/api", CustomerFeedbackapp);
 
 // Default route
 app.get("/", (req, res) => {

@@ -19,22 +19,22 @@ const Review_Customer = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  const url = "https://backend-of-tours.onrender.com"
+  // const url = "https://backend-of-tours.onrender.com"
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.number,
-      message: formData.message,
+      Name: formData.name,
+      Email: formData.email,
+      Phone: formData.number,
+      Review: formData.message,
       rating: formData.rating
     };
     console.log("the value is: ", { data });
 
     try {
       if (parseInt(formData.rating) > 0) {
-        await axios.post(`${url}/customerreview`, data)
+        await axios.post(`http://localhost:3000/api/customerfeedback`, data)
           .then((res) => console.log(res.data));
         setSubmitted(true);
         setFormData({ name: "", email: "", number: "", message: "", rating: "5" });
@@ -44,7 +44,11 @@ const Review_Customer = () => {
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error("Something went wrong. Please try again.");
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -104,13 +108,6 @@ const Review_Customer = () => {
             <h2 className="text-2xl font-bold text-center mb-4">
               Contact Us
             </h2>
-
-            {submitted && (
-              <p className="text-green-500 text-center mb-4">
-                Thank you for your message!
-              </p>
-            )}
-
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label

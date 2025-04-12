@@ -176,8 +176,8 @@ const Home = () => {
         <Card />
       </div>
       <div className="bg-white py-10 border-8 flex flex-col border-amber-300">
-        <div className="ml-32 flex justify-center sm:mr-52">
-          <h1 className="text-2xl md:text-4xl lg:text-4xl font-bold text-black text-center mb-8">
+        <div className="flex justify-center px-4 sm:px-8">
+          <h1 className="text-xl sm:text-2xl md:text-4xl font-bold text-black text-center mb-8">
             Best Destinations to Visit in Uttarakhand
           </h1>
         </div>
