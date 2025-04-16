@@ -5,7 +5,7 @@ import banner3 from "../../assets/Banner3.jpg";
 import banner4 from "../../assets/Banner4.jpg";
 import FormInfo from "./FormInfo";
 import Review_Customer from "../../Components/Review_Page/Review_Customer";
-import Service from "../../Components/Tours/Services/Service.jsx";
+import ToursPlaceService from "./ToursPlaceService.jsx";
 import Milestone from "../../Components/Tours/Services/Milestone.jsx";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
@@ -194,7 +194,7 @@ const Home = () => {
       </div>
       <p className="bg-black h-1"></p>
       <div>
-        <Service />
+        <ToursPlaceService />
       </div>
       <p className="bg-black h-1"></p>
       <div>
