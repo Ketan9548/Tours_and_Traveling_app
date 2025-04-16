@@ -1,20 +1,23 @@
-import express from "express";
-import CustomerFeedbackModel from "../Modeals/CustomerFeedback.js";
+import express from 'express';
+import ContactInfoModels from '../Modeals/Contactinfor.js';
 
-const Contactinfoapp = express();
+const CustomerContactapp = express();
 
-Contactinfoapp.post("/contactinfo", async (req, res) => {
+CustomerContactapp.post('/customercontact', async (req, res) => {
   try {
-    const data = req.body;
-    const newformdata = new CustomerFeedbackModel(data);
-    await newformdata.save();
-    res.status(200).json({ message: "Contact Information Added Successfully" });
+    const { name, email, phone, message } = req.body;
+
+    if (!name || !email || !phone || !message) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
+    const newcontactinfo = await ContactInfoModels.create({ name, email, phone, message });
+
+    res.status(200).json({ message: 'Customer Feedback Added Successfully', data: newcontactinfo });
   } catch (error) {
-    console.log("Error in adding contact information", error);
-    res.status(400).json({ message: "Error in the add Form Data in database" });
+    console.log("Error in adding Customer Review", error);
+    res.status(500).json({ message: error.message });
   }
 });
 
-
-export default Contactinfoapp;
-
+export default CustomerContactapp;

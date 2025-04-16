@@ -1,5 +1,5 @@
 import express from 'express';
-import Customerfeedback from '../Modeals/CustomerFeedback.js';
+import CustomerfeedbackModel from '../Modeals/CustomerFeedback.js';
 
 const CustomerFeedbackapp = express();
 
@@ -14,7 +14,7 @@ CustomerFeedbackapp.post('/customerfeedback', async (req, res) => {
             return res.status(400).json({ message: "Rating must be between 1 and 4" });
         }
 
-        const newfeedback = await Customerfeedback.create({ Name, Email, Phone, rating, Review });
+        const newfeedback = await CustomerfeedbackModel.create({ Name, Email, Phone, rating, Review });
 
         res.status(200).json({ message: 'Customer Feedback Added Successfully', data: newfeedback });
     } catch (error) {

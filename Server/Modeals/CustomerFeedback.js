@@ -1,9 +1,9 @@
 import { DataTypes, Model } from "sequelize";
 import sequelizeDB from "../DatabaseConnection/DbConnection.js";
 
-class Customerfeedback extends Model { }
+class CustomerfeedbackModel extends Model { }
 
-Customerfeedback.init({
+CustomerfeedbackModel.init({
   Name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -66,4 +66,4 @@ Customerfeedback.init({
   underscored: true,
 });
 
-export default Customerfeedback;
+export default CustomerfeedbackModel;

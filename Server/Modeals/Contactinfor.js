@@ -1,35 +1,49 @@
-import { DataTypes } from "sequelize";
+import { DataTypes, Model } from "sequelize";
 import sequelizeDB from "../DatabaseConnection/DbConnection.js";
 
-const ContactInfoModels = sequelizeDB.define("ContactInfo", {
-  Name: {
+class ContactInfoModels extends Model { }
+
+ContactInfoModels.init({
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      isAlpha: true, // Allows only alphabetic characters
+      is: /^[a-zA-Z ]+$/,
     },
   },
-  Email: {
+  email: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      isEmail: true, // Ensures the value is a valid email
+      isEmail: true,
     },
   },
-  Phone: {
+  phone: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      isNumeric: true, // Ensures the value contains only numbers
+      isNumeric: {
+        msg: "Phone number must contain only digits",
+      },
+      len: {
+        args: [10, 10],
+        msg: "Phone number must be exactly 10 digits",
+      },
     },
   },
-  Message: {
+  message: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true, // Ensures the message is not empty
+      notEmpty: true,
     },
   },
+}, {
+  sequelize: sequelizeDB,
+  modelName: "ContactInfoModels",
+  tableName: "ContactInfo",
+  timestamps: true,
+  underscored: true,
 });
 
 export default ContactInfoModels;

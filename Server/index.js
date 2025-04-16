@@ -2,7 +2,7 @@ import express from "express";
 import sequelizeDB from "./DatabaseConnection/DbConnection.js";
 import bodyParser from "body-parser";
 import Serviceapp from "./Routes/ServicesRoutes.js";
-import Contactinfoapp from "./Routes/ContactinfoRoutes.js";
+import CustomerContactapp from "./Routes/ContactinfoRoutes.js";
 import CustomerFeedbackapp from "./Routes/CustomerFeedback.js";
 import Userapp from "./Routes/UserRoutes.js";
 import cors from "cors";
@@ -29,7 +29,7 @@ connectToDatabase();
 // Middleware
 app.use(bodyParser.json());
 app.use("/api", Serviceapp); // Correctly register the service routes
-app.use("/api", Contactinfoapp);
+app.use("/api", CustomerContactapp);
 app.use("/api", Userapp);
 app.use("/api", CustomerFeedbackapp);
 
