@@ -9,7 +9,7 @@ const Card = () => {
   const cards = [
     {
       img: img1,
-      title: "Nainital Car Service",
+      title: "Chardham Car Service",
     },
     {
       img: img2,

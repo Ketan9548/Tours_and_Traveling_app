@@ -35,7 +35,7 @@ const Navbar = () => {
             {[
               { name: "Home", to: "/" },
               { name: "Services", to: "/services" },
-              { name: "Blogs", to: "/blogs" },
+              { name: "Blogs", to: "/blogslist" },
               { name: "About", to: "/about" },
               { name: "Contact", to: "/contact" },
             ].map((item) => (

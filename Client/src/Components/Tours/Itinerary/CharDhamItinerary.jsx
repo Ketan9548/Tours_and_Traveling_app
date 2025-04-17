@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import img1 from "../Carosalimg/images1.jpg";
-import img2 from "../Carosalimg/images2.jpg";
-import img3 from "../Carosalimg/images3.jpg";
-import img4 from "../Carosalimg/images4.jpg";
-import img5 from "../Carosalimg/images5.jpg";
+import img1 from "./Carosalimg/images1.jpg";
+import img2 from "./Carosalimg/images2.jpg";
+import img3 from "./Carosalimg/images3.jpg";
+import img4 from "./Carosalimg/images4.jpg";
+import img5 from "./Carosalimg/images5.jpg";
 import InfoCard from "./Section/InfoCard";
 import GradeCard from "./Section/GradeCard";
 import {
@@ -16,7 +16,7 @@ import Details from "./Section/Details";
 import Overview from "./Section/Overview";
 import Itinerary from "./Section/Itinerary";
 
-const CharDhamBlogs = () => {
+const CharDhamItinerary = () => {
   const [duration, setDuration] = useState(0);
   const [altitude, setAltitude] = useState(0);
   const [trackingArea, setTrackingArea] = useState(0);
@@ -175,4 +175,4 @@ const CharDhamBlogs = () => {
   );
 };
 
-export default CharDhamBlogs;
+export default CharDhamItinerary;

@@ -13,16 +13,12 @@ import {
 } from "react-router-dom";
 import Servicepage from "./Components/Tours/Services/Servicepage.jsx";
 import NanitalCar from './Components/Tours/Services/ServicePage/Services/NanitalCar.jsx';
-import Blogs from "./Components/Blogs/Blogs.jsx";
-import NanitalBlogs from "./Components/Blogs/Pages/NanitalBlogs.jsx";
-import MasuriBlogs from "./Components/Blogs/Pages/MasuriBlogs.jsx";
-import KedarnathBlogs from "./Components/Blogs/Pages/KedarnathBlogs.jsx";
-import DehradunBlogs from "./Components/Blogs/Pages/DehradunBlogs.jsx";
-import CharDhamBlogs from "./Components/Blogs/Pages/CharDhamBlogs.jsx";
 import ContactForm from './Components/Tours/Services/ServicePage/ContactForm/ContactForm.jsx';
 import Contextdata from "./context/Contextdata.jsx";
 import Productinfo from "./Components/Tours/Productsinfo/Productinfo.jsx";
-import HaridwarBlogs from "./Components/Blogs/Pages/HaridwarBlogs.jsx";
+import CharDhamItinerary from "./Components/Tours/Itinerary/CharDhamItinerary.jsx";
+import BlogsLists from "./Components/Blogs/BlogsLists.jsx";
+import BlogsPages from "./Components/Blogs/Pages/BlogsPages.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,13 +30,11 @@ const router = createBrowserRouter(
       <Route path="nanitalcar" element={<NanitalCar />} />
       <Route path="from" element={<ContactForm />} />
       {/* blogs routes start  */}
-      <Route path="blogs" element={<Blogs />} />
-      <Route path="nanitalblogs" element={<NanitalBlogs />} />
-      <Route path="masuriblogs" element={<MasuriBlogs />} />
-      <Route path="kedarnathblogs" element={<KedarnathBlogs />} />
-      <Route path="dehradunblogs" element={<DehradunBlogs />} />
-      <Route path="chardhamblogs" element={<CharDhamBlogs />} />
-      <Route path="haridwarblogs" element={<HaridwarBlogs />} />
+      <Route path="blogslist" element={<BlogsLists />} />
+      <Route path="blogspages/:id" element={<BlogsPages />} />
+      {/* end  */}
+      {/* Itinarys start  */}
+      <Route path="chardham_Itenary" element={<CharDhamItinerary />} />
       {/* end  */}
       <Route path="productinfo" element={<Productinfo />} />
     </Route>

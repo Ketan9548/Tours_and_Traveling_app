@@ -9,7 +9,7 @@ const Productinfo = () => {
   return (
     <>
       {/* Hero Section */}
-      <div className='flex flex-col justify-center items-center mx-8 md:mx-32 mb-20 mt-10 text-center'>
+      <div className='flex flex-col justify-center items-center mx-6 md:mx-32 mb-20 mt-10 text-center'>
         <img className='w-full max-h-[500px] object-cover rounded-2xl shadow-xl' src={chardham} alt="Chardham Banner" />
         <p className='mt-11 text-black font-bold text-4xl md:text-5xl'>
           Welcome to Chardham Tours
@@ -26,7 +26,7 @@ const Productinfo = () => {
         >
           <img className='w-full h-64 object-cover' src={chardham} />
           <div className='p-4'>
-            <h3 className='text-xl font-semibold text-gray-800 mb-2'>Chardham Destination 1</h3>
+            <h3 className='text-xl font-semibold text-gray-800 mb-2'>Tours Service's</h3>
             <p className='text-gray-600 mb-4'>
               Discover the wonders of this sacred site and enjoy a serene experience like never before.
             </p>
@@ -44,7 +44,7 @@ const Productinfo = () => {
             <p className='text-gray-600 mb-4'>
               Discover the wonders of this sacred site and enjoy a serene experience like never before.
             </p>
-            <NavLink to="/chardhamblogs" onClick={handleClick} className='mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition'>
+            <NavLink to="/chardham_Itenary" onClick={handleClick} className='mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition'>
               Visit More Itenary
             </NavLink>
           </div>
