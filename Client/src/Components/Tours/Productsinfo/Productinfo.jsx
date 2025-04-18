@@ -1,18 +1,43 @@
 import React from 'react';
 import chardham from '../../Blogs/Blogsimges/Chardham.jpg';
 import { NavLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const Productinfo = () => {
+  const Tours = [
+    {
+      id: 1,
+      name: "Nanital",
+    },
+    {
+      id: 2,
+      name: "Dehradun",
+    }
+    ,
+    {
+      id: 3,
+      name: "Masuri",
+    }
+  ]
+
+  const { id } = useParams();
+  const tours = Tours.find((item) => item.id.toString() === id);
+
+  if (!tours) {
+    return <h2 className="text-center text-2xl font-semibold text-red-600 mt-10">No Tours Available</h2>;
+  }
+
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
   return (
     <>
       {/* Hero Section */}
       <div className='flex flex-col justify-center items-center mx-6 md:mx-32 mb-20 mt-10 text-center'>
         <img className='w-full max-h-[500px] object-cover rounded-2xl shadow-xl' src={chardham} alt="Chardham Banner" />
         <p className='mt-11 text-black font-bold text-4xl md:text-5xl'>
-          Welcome to Chardham Tours
+          Welcome to {tours.name} Tours
         </p>
         <p className="mt-4 text-gray-600 text-lg md:text-xl max-w-3xl">
           Explore the spiritual Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perspiciatis deleniti fuga placeat, in minus aperiam, maiores tempora saepe hic, vitae aliquid beatae? Expedita, cum quo? Maxime sunt, libero, earum eligendi deleniti distinctio possimus esse quasi, ea assumenda quas. A ullam neque blanditiis. journey of Chardham with us. Discover serene landscapes, sacred temples, and unforgettable experiences.
@@ -26,12 +51,12 @@ const Productinfo = () => {
         >
           <img className='w-full h-64 object-cover' src={chardham} />
           <div className='p-4'>
-            <h3 className='text-xl font-semibold text-gray-800 mb-2'>Tours Service's</h3>
+            <h3 className='text-xl font-semibold text-gray-800 mb-2'>{tours.name} Tours Service</h3>
             <p className='text-gray-600 mb-4'>
               Discover the wonders of this sacred site and enjoy a serene experience like never before.
             </p>
             <NavLink to="/nanitalcar" onClick={handleClick} className='mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition'>
-              Taxi Tours
+              Book Now
             </NavLink>
           </div>
         </div>
@@ -40,7 +65,7 @@ const Productinfo = () => {
         >
           <img className='w-full h-64 object-cover' src={chardham} />
           <div className='p-4'>
-            <h3 className='text-xl font-semibold text-gray-800 mb-2'>Chardham Destination 2</h3>
+            <h3 className='text-xl font-semibold text-gray-800 mb-2'>Itenary</h3>
             <p className='text-gray-600 mb-4'>
               Discover the wonders of this sacred site and enjoy a serene experience like never before.
             </p>

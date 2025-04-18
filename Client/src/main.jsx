@@ -36,7 +36,7 @@ const router = createBrowserRouter(
       {/* Itinarys start  */}
       <Route path="chardham_Itenary" element={<CharDhamItinerary />} />
       {/* end  */}
-      <Route path="productinfo" element={<Productinfo />} />
+      <Route path="productinfo/:id" element={<Productinfo />} />
     </Route>
   )
 );

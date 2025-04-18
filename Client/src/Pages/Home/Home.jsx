@@ -46,6 +46,7 @@ const Home = () => {
               </p>
               <NavLink
                 to="services"
+                onScroll={() => window.scrollTo(0, 0)}
                 className="mt-8 px-4 sm:px-6 py-2 sm:py-3 bg-yellow-500 hover:bg-yellow-600 text-white text-sm sm:text-lg font-semibold rounded-full shadow-lg transition-all duration-300 ease-in-out"
               >
                 Explore Tours

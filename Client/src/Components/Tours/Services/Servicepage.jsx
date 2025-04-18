@@ -7,18 +7,39 @@ import Kedarnath from "../../Blogs/Blogsimges/Kedarnath.webp";
 import Masuri from "../../Blogs/Blogsimges/Masuri.jpg";
 import Nanital from "../../Blogs/Blogsimges/Nanital.jpg";
 import { ApiContext } from "../../../context/Contextdata";
+import { useNavigate } from "react-router-dom";
 
 const Servicepage = () => {
   const blogs = [
-    { name: "Chardham", src: Chardham },
-    { name: "Dehradun", src: Dehradun },
-    { name: "Haridwar", src: Haridwar },
-    { name: "Kedarnath", src: Kedarnath },
-    { name: "Masuri", src: Masuri },
-    { name: "Nanital", src: Nanital },
+    { id: 1, name: "Chardham", src: Chardham },
+    { id: 2, name: "Dehradun", src: Dehradun },
+    { id: 3, name: "Haridwar", src: Haridwar },
+    { id: 4, name: "Kedarnath", src: Kedarnath },
+    { id: 5, name: "Masuri", src: Masuri },
+    { id: 6, name: "Nanital", src: Nanital },
   ];
+  const navigete = useNavigate();
 
-  const { data, error, loading } = useContext(ApiContext);
+  const Tours = [
+    {
+      id: 1,
+      name: "Nanital",
+      img: Nanital
+    },
+    {
+      id: 2,
+      name: "Dehradun",
+      img: Dehradun
+    }
+    ,
+    {
+      id: 3,
+      name: "Masuri",
+      img: Masuri
+    }
+  ]
+
+  const { error, loading } = useContext(ApiContext);
 
   return (
     <>
@@ -35,21 +56,15 @@ const Servicepage = () => {
           <p className="text-center text-red-500 font-bold">{error.message}</p>
         ) : (
           <div className="flex flex-wrap justify-center gap-6 p-6">
-            {data && data.map((val, index) => (
+            {Tours && Tours.map((val, index) => (
               <div
                 key={index}
                 className="w-full sm:w-80 bg-white border border-gray-300 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
               >
-                <h2 className="text-xl font-bold text-center text-blue-700 mb-4">{val.title}</h2>
-                <ul className="list-disc list-inside space-y-2 text-gray-700">
-                  {val.list && val.list.map((item, idx) => (
-                    <li key={idx}>
-                      <NavLink to="/productinfo">
-                        <span className="hover:text-orange-400 ml-2">{item.trim()}</span>
-                      </NavLink>
-                    </li>
-                  ))}
-                </ul>
+                <img src={val.img} alt="" />
+                <h2 onClick={() => navigete(`/productinfo/${val.id}`)} className="text-xl font-bold cursor-pointer text-center text-blue-700 mb-4">
+                  {val.name}
+                </h2>
               </div>
             ))}
           </div>
