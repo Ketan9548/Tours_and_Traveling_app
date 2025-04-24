@@ -10,14 +10,7 @@ import { ApiContext } from "../../../context/Contextdata";
 import { useNavigate } from "react-router-dom";
 
 const Servicepage = () => {
-  const blogs = [
-    { id: 1, name: "Chardham", src: Chardham },
-    { id: 2, name: "Dehradun", src: Dehradun },
-    { id: 3, name: "Haridwar", src: Haridwar },
-    { id: 4, name: "Kedarnath", src: Kedarnath },
-    { id: 5, name: "Masuri", src: Masuri },
-    { id: 6, name: "Nanital", src: Nanital },
-  ];
+  const { blogs } = useContext(ApiContext);
   const navigete = useNavigate();
 
   const Tours = [
@@ -40,6 +33,11 @@ const Servicepage = () => {
   ]
 
   const { error, loading } = useContext(ApiContext);
+
+  const handleClick = (id) => {
+    navigete(`/blogspages/${id}`);
+    scrollTo(0,0);
+  }
 
   return (
     <>
@@ -80,14 +78,14 @@ const Servicepage = () => {
             <div key={index} className="flex flex-col lg:flex-row mb-4 mt-4">
               <div className="w-full lg:w-1/4 flex justify-center items-center mb-4 lg:mb-0">
                 <img
-                  src={item.src}
+                  src={item.img}
                   alt=""
                   className="border-2 border-gray-300 rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
                 />
               </div>
               <div className="w-full lg:w-1/2 flex flex-col justify-center ml-0 lg:ml-12">
                 <p className="text-3xl mb-1 hover:text-black font-bold text-yellow-400">
-                  <NavLink to="/blogs">{item.name}</NavLink>
+                  <p className="cursor-pointer" onClick={() => handleClick(item.id)}>{item.location}</p>
                 </p>
                 <p className="font-thin text-pretty text-lg">
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel

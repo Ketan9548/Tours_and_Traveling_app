@@ -1,21 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import Nanital from './Blogsimges/Nanital.jpg';
-import Masuri from './Blogsimges/Masuri.jpg';
-import Kedarnath from './Blogsimges/Kedarnath.webp';
-import Dehradun from './Blogsimges/Dehardun.jpg';
-import Chardham from './Blogsimges/Chardham.jpg';
-import Haridwar from './Blogsimges/Haridwar.jpg';
+import { ApiContext } from "../../context/Contextdata";
 
 const BlogsLists = () => {
-  const blogs = [
-    { id: 1, img: Nanital, location: "Nanital", cab: "Rudrapur Cabs", date: "September 15th, 2022" },
-    { id: 2, img: Masuri, location: "Masuri", cab: "Rudrapur Cabs", date: "September 15th, 2022" },
-    { id: 3, img: Kedarnath, location: "Kedarnath", cab: "Rudrapur Cabs", date: "January 21th, 2020" },
-    { id: 4, img: Dehradun, location: "Dehradun", cab: "Rudrapur Cabs", date: "May 09th, 2023" },
-    { id: 5, img: Chardham, location: "Chardham", cab: "Rudrapur Cabs", date: "November 15th, 2022" },
-    { id: 6, img: Haridwar, location: "Haridwar", cab: "Rudrapur Cabs", date: "December 10th, 2019" },
-  ];
+  const { blogs } = useContext(ApiContext);
 
   return (
     <div className="mr-14 mt-6 w-auto sm:ml-8 lg:ml-12">
@@ -33,7 +21,7 @@ const BlogsLists = () => {
             <div className="text-center">
               <p className="text-lg font-bold text-blue-600 hover:text-blue-800 transition duration-300">
                 <NavLink
-                  to={`/blogspages/${item.id}`} // 👈 navigate using id
+                  to={`/blogspages/${item.id}`}
                   className="focus:outline-none focus:underline"
                 >
                   {`Explore ${item.location}`}
