@@ -1,11 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
-import Chardham from "../../Blogs/Blogsimges/Chardham.jpg";
-import Dehradun from "../../Blogs/Blogsimges/Dehardun.jpg";
-import Haridwar from "../../Blogs/Blogsimges/Haridwar.jpg";
-import Kedarnath from "../../Blogs/Blogsimges/Kedarnath.webp";
-import Masuri from "../../Blogs/Blogsimges/Masuri.jpg";
-import Nanital from "../../Blogs/Blogsimges/Nanital.jpg";
+
 import { ApiContext } from "../../../context/Contextdata";
 import { useNavigate } from "react-router-dom";
 
@@ -13,30 +7,12 @@ const Servicepage = () => {
   const { blogs } = useContext(ApiContext);
   const navigete = useNavigate();
 
-  const Tours = [
-    {
-      id: 1,
-      name: "Nanital",
-      img: Nanital
-    },
-    {
-      id: 2,
-      name: "Dehradun",
-      img: Dehradun
-    }
-    ,
-    {
-      id: 3,
-      name: "Masuri",
-      img: Masuri
-    }
-  ]
-
+  const { Tours } = useContext(ApiContext)
   const { error, loading } = useContext(ApiContext);
 
   const handleClick = (id) => {
     navigete(`/blogspages/${id}`);
-    scrollTo(0,0);
+    scrollTo(0, 0);
   }
 
   return (

@@ -1,13 +1,13 @@
 import React from "react";
 
-const Basicinfo = () => {
+const Basicinfo = ({ Name }) => {
   return (
     <>
       <div className="px-4">
         <div className="flex flex-col justify-center items-center">
           {/* Title */}
           <p className="text-2xl md:text-4xl font-bold text-center">
-            Car Rental Rudrapur
+            Car Rental {Name}
           </p>
           {/* Decorative lines */}
           <div className="bg-black h-0.5 w-3/4 sm:w-1/2 md:w-96 mt-2"></div>

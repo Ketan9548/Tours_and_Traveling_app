@@ -2,23 +2,11 @@ import React from 'react';
 import chardham from '../../Blogs/Blogsimges/Chardham.jpg';
 import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { ApiContext } from '../../../context/Contextdata';
+import { useContext } from 'react';
 
 const Productinfo = () => {
-  const Tours = [
-    {
-      id: 1,
-      name: "Nanital",
-    },
-    {
-      id: 2,
-      name: "Dehradun",
-    }
-    ,
-    {
-      id: 3,
-      name: "Masuri",
-    }
-  ]
+  const { Tours } = useContext(ApiContext);
 
   const { id } = useParams();
   const tours = Tours.find((item) => item.id.toString() === id);
@@ -55,7 +43,7 @@ const Productinfo = () => {
             <p className='text-gray-600 mb-4'>
               Discover the wonders of this sacred site and enjoy a serene experience like never before.
             </p>
-            <NavLink to="/nanitalcar" onClick={handleClick} className='mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition'>
+            <NavLink to={`/tours/${tours.id}`} onClick={handleClick} className='mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition'>
               Book Now
             </NavLink>
           </div>

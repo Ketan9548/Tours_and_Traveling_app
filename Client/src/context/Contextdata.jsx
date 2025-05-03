@@ -6,6 +6,7 @@ import Kedarnath from "../Components/Blogs/Blogsimges/Kedarnath.webp";
 import Dehradun from "../Components/Blogs/Blogsimges/Dehardun.jpg";
 import Chardham from "../Components/Blogs/Blogsimges/Chardham.jpg";
 import Haridwar from "../Components/Blogs/Blogsimges/Haridwar.jpg";
+// Tours img 
 
 
 export const ApiContext = createContext();
@@ -19,6 +20,24 @@ const Contextdata = ({ children }) => {
         { id: 5, img: Chardham, location: "Chardham", cab: "Rudrapur Cabs", date: "November 15th, 2022" },
         { id: 6, img: Haridwar, location: "Haridwar", cab: "Rudrapur Cabs", date: "December 10th, 2019" },
     ];
+    const Tours = [
+        {
+            id: 1,
+            name: "Nanital",
+            img: Nanital
+        },
+        {
+            id: 2,
+            name: "Dehradun",
+            img: Dehradun
+        }
+        ,
+        {
+            id: 3,
+            name: "Masuri",
+            img: Masuri
+        }
+    ]
     const [data, setdata] = useState();
     const [error, setError] = useState();
     const [loading, setLoading] = useState(true);
@@ -39,7 +58,7 @@ const Contextdata = ({ children }) => {
         fetchData();
     }, [])
     return (
-        <ApiContext.Provider value={{ data, error, loading, blogs }}>
+        <ApiContext.Provider value={{ data, error, loading, blogs, Tours }}>
             {children}
         </ApiContext.Provider>
     )

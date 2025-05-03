@@ -27,7 +27,9 @@ const router = createBrowserRouter(
       <Route path="about" element={<Abouts />} />
       <Route path="contact" element={<Contact />} />
       <Route path="services" element={<Servicepage />} />
-      <Route path="nanitalcar" element={<NanitalCar />} />
+      {/* tours start  */}
+      <Route path="/tours/:id" element={<NanitalCar />} />
+      {/* end  */}
       <Route path="from" element={<ContactForm />} />
       {/* blogs routes start  */}
       <Route path="blogslist" element={<BlogsLists />} />

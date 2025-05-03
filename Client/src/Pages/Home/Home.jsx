@@ -6,7 +6,7 @@ import banner4 from "../../assets/Banner4.jpg";
 import FormInfo from "./FormInfo";
 import Review_Customer from "../../Components/Review_Page/Review_Customer";
 import ToursPlaceService from "./ToursPlaceService.jsx";
-import Milestone from "../../Components/Tours/Services/Milestone.jsx";
+import Milestone from "./Milestone.jsx";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";

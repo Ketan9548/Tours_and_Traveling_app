@@ -1,11 +1,11 @@
-const Rentalprice = () => {
+const Rentalprice = ({Name = "none"}) => {
   return (
     <>
       <div className="mt-5">
         {/* Header Section */}
         <div className="h-36 w-full bg-gray-700 flex justify-center items-center">
           <p className="text-white text-3xl md:text-5xl text-center">
-            Rudrapur Car Rental with Driver
+            {Name} Car Rental with Driver
           </p>
         </div>
         {/* Car Options Section */}
