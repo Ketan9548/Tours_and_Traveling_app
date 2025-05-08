@@ -6,6 +6,7 @@ import CustomerContactapp from "./Routes/ContactinfoRoutes.js";
 import CustomerFeedbackapp from "./Routes/CustomerFeedback.js";
 import Userapp from "./Routes/UserRoutes.js";
 import cors from "cors";
+import Blogsapp from "./Routes/Blogs_Routes.js";
 
 const app = express();
 const port = 3000;
@@ -32,6 +33,7 @@ app.use("/api", Serviceapp); // Correctly register the service routes
 app.use("/api", CustomerContactapp);
 app.use("/api", Userapp);
 app.use("/api", CustomerFeedbackapp);
+app.use('/api', Blogsapp)
 
 // Default route
 app.get("/", (req, res) => {

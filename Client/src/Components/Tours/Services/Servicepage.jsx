@@ -4,11 +4,9 @@ import { ApiContext } from "../../../context/Contextdata";
 import { useNavigate } from "react-router-dom";
 
 const Servicepage = () => {
-  const { blogs } = useContext(ApiContext);
   const navigete = useNavigate();
 
-  const { Tours } = useContext(ApiContext)
-  const { error, loading } = useContext(ApiContext);
+  const { error, loading, tours, blogs } = useContext(ApiContext);
 
   const handleClick = (id) => {
     navigete(`/blogspages/${id}`);
@@ -30,12 +28,12 @@ const Servicepage = () => {
           <p className="text-center text-red-500 font-bold">{error.message}</p>
         ) : (
           <div className="flex flex-wrap justify-center gap-6 p-6">
-            {Tours && Tours.map((val, index) => (
+            {tours && tours.map((val, index) => (
               <div
                 key={index}
                 className="w-full sm:w-80 bg-white border border-gray-300 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
               >
-                <img src={val.img} alt="" />
+                <img src={val.image} alt="" />
                 <h2 onClick={() => navigete(`/productinfo/${val.id}`)} className="text-xl font-bold cursor-pointer text-center text-blue-700 mb-4">
                   {val.name}
                 </h2>
@@ -61,7 +59,7 @@ const Servicepage = () => {
               </div>
               <div className="w-full lg:w-1/2 flex flex-col justify-center ml-0 lg:ml-12">
                 <p className="text-3xl mb-1 hover:text-black font-bold text-yellow-400">
-                  <p className="cursor-pointer" onClick={() => handleClick(item.id)}>{item.location}</p>
+                  <span className="cursor-pointer" onClick={() => handleClick(item.id)}>{item.location}</span>
                 </p>
                 <p className="font-thin text-pretty text-lg">
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel

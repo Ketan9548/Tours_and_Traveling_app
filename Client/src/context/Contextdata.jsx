@@ -12,6 +12,7 @@ import Haridwar from "../Components/Blogs/Blogsimges/Haridwar.jpg";
 export const ApiContext = createContext();
 
 const Contextdata = ({ children }) => {
+    const [tours, setTours] = useState([]);
     const blogs = [
         { id: 1, img: Nanital, location: "Nanital", cab: "Rudrapur Cabs", date: "September 15th, 2022" },
         { id: 2, img: Masuri, location: "Masuri", cab: "Rudrapur Cabs", date: "September 15th, 2022" },
@@ -20,31 +21,41 @@ const Contextdata = ({ children }) => {
         { id: 5, img: Chardham, location: "Chardham", cab: "Rudrapur Cabs", date: "November 15th, 2022" },
         { id: 6, img: Haridwar, location: "Haridwar", cab: "Rudrapur Cabs", date: "December 10th, 2019" },
     ];
-    const Tours = [
-        {
-            id: 1,
-            name: "Nanital",
-            img: Nanital
-        },
-        {
-            id: 2,
-            name: "Dehradun",
-            img: Dehradun
+
+    const getTours = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3000/api/allblogsdata`);
+            setTours(response.data.data);
+            console.log("the data is response is:", response.data);
+        } catch (error) {
+            console.log("error in blogs fetching: ", error);
         }
-        ,
-        {
-            id: 3,
-            name: "Masuri",
-            img: Masuri
-        }
-    ]
-    const [data, setdata] = useState();
+    }
+    // const Tours = [
+    //     {
+    //         id: 1,
+    //         name: "Nanital",
+    //         img: Nanital
+    //     },
+    //     {
+    //         id: 2,
+    //         name: "Dehradun",
+    //         img: Dehradun
+    //     }
+    //     ,
+    //     {
+    //         id: 3,
+    //         name: "Masuri",
+    //         img: Masuri
+    //     }
+    // ]
+    const [data, setData] = useState();
     const [error, setError] = useState();
     const [loading, setLoading] = useState(true);
     const fetchData = async () => {
         try {
             const response = await axios.get(`/api/alldata`);
-            setdata(response.data);
+            setData(response.data);
             // console.log("the data is response is:", response.data);
         } catch (err) {
             setError("Failed to fetch data. Please try again later.", err);
@@ -55,13 +66,18 @@ const Contextdata = ({ children }) => {
     };
 
     useEffect(() => {
+        for (let i = 0; i < tours.length; i++) {
+            const element = array[i];
+            console.log("Value is: ", element);
+        }
+        getTours();
         fetchData();
     }, [])
     return (
-        <ApiContext.Provider value={{ data, error, loading, blogs, Tours }}>
+        <ApiContext.Provider value={{ data, error, loading, blogs, tours }}>
             {children}
         </ApiContext.Provider>
     )
 }
 
-export default Contextdata
+export default Contextdata;
