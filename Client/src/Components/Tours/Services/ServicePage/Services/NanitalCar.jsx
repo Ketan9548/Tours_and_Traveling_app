@@ -9,11 +9,11 @@ import { ApiContext } from "../../../../../context/Contextdata";
 
 const NanitalCar = () => {
   const { id } = useParams();
-  const { Tours } = useContext(ApiContext)
+  const { tours } = useContext(ApiContext)
 
-  const validID = Tours.map((val) => val.id);
+  const validID = tours.map((val) => val.id);
 
-  const tours = Tours.find((item) => item.id.toString() === id);
+  const Tours = tours.find((item) => item.id.toString() === id);
 
   if (!validID) {
     return <h2 className="text-center mt-10 text-red-500 text-2xl"> Info Not Found</h2>;
@@ -21,9 +21,9 @@ const NanitalCar = () => {
   return (
     <>
       <Imagefile />
-      <Basicinfo Name={tours.name} />
+      <Basicinfo Name={Tours.name} />
       <Carinfo />
-      <Rentalprice Name={tours.name} />
+      <Rentalprice Name={Tours.name} />
       <Formfile />
     </>
   );

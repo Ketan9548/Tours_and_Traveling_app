@@ -6,7 +6,8 @@ export default defineConfig({
   server:{
     proxy:{
       '/api':'https://backend-of-tours.onrender.com',
-    }
+    },
+    port: 3001,
   },
   plugins: [react()],
 })

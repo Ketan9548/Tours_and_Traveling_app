@@ -1,19 +1,21 @@
 import express from 'express';
 import Blogsmodels from '../Modeals/Blogs.models.js';
-import upload from '../Middelwares/multer.Middelware.js';
-import multer from 'multer';
-
+import upload from '../Middelwares/multer.Middelware.js'
 
 const Blogsapp = express();
 
 Blogsapp.post('/blogsUpload', upload.single('image'), async (req, res) => {
     try {
         const { name } = req.body;
-        if (!name || !req.file) {
+        const image = req.file;
+        if (!name || !image) {
             return res.status(400).json({ message: "All fields are required" });
         }
 
         const imageUrl = req.file.path; // cloudinary URL
+        if(!imageUrl){
+            return res.status(400).json({ message: "cloudinary URL not found" });
+        }
         const newBlogs = await Blogsmodels.create({ name, image: imageUrl });
 
         res.status(200).json({ message: 'Blogs Added Successfully...', data: newBlogs });

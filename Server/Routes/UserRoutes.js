@@ -16,11 +16,11 @@ Userapp.post("/register", async (req, res) => {
       password: password,
     });
     await user.save();
-    res.status(201).json({ message: "User registered successfully" });
+    res.status(201).json({ success: true, message: "User registered successfully" });
   } catch (error) {
-    res.status(400).json({ message: "User registration failed" });
+    res.status(400).json({ success: false, message: error.message });
   }
-}); 
+});
 
 // login function
 Userapp.post("/login", async (req, res) => {
